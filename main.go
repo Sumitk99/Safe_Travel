@@ -86,7 +86,7 @@ func gatherHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("User Response : %s", digits)
 
 	var response string
-	if digits == "1" {
+	if digits == os.Getenv("SECURITY_CODE") {
 		response = "Thank you. Your code is correct."
 	} else {
 		response = fmt.Sprintf("Alert, Incorrect Code entered by %s.", toPhoneNumber)
